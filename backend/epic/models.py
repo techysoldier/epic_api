@@ -13,6 +13,6 @@ class MemberCenter(models.Model):
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    locationid = models.CharField(max_length=255)
+    location_id = models.CharField(max_length=255)
     text = models.CharField(max_length=255)
 
