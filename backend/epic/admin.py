@@ -1,7 +1,7 @@
 from django.apps import AppConfig
 
+from django.contrib import admin
+from .models import MemberCenter
 
-class YoutubeCloneConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'epic'
+admin.site.register(MemberCenter)
 

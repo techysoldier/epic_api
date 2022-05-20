@@ -9,7 +9,7 @@ class MemberCenter(models.Model):
     userid = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
     email = models.CharField(max_length=100)
-    membersince= models.IntegerField()
+    membersince= models.DateField()
 
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
