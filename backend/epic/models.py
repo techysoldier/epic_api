@@ -5,7 +5,6 @@ from authentication.models import User
 
 # <<<<<<<<<<<<<<<<< EXAMPLE FOR STARTER CODE USE <<<<<<<<<<<<<<<<<
 
-
 class MemberCenter(models.Model):
     userid = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=30)
