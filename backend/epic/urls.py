@@ -15,9 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from . import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.get_comments),
     path('api/auth/', include('authentication.urls')),
-    path('api/epic/', include('epic.urls')),
+    path('api/epic/', views.user_comments),
 ]

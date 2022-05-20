@@ -22,7 +22,7 @@ def get_comments(request):
 @permission_classes([IsAuthenticated])
 def user_comments(request, location_id):
     print(
-        'User ', f"{request.user.id} {request.user.email} {request.user.username}")
+        'User ', f"{request.user.id} {request.user.email} {request.user.name}")
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():
