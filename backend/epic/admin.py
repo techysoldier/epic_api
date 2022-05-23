@@ -6,3 +6,4 @@ from .models import Comment
 
 admin.site.register(MemberCenter)
 admin.site.register(Comment)
+

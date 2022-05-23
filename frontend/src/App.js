@@ -26,7 +26,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/" element={<EpicHomePage/>}/> 
+        <Route path="/epic" element={<EpicHomePage/>}/> 
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
