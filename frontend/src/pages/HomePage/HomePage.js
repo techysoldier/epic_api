@@ -12,7 +12,7 @@ const HomePage = () => {
   const [cars, setCars] = useState([]);
 
   useEffect(() => {
-    const fetchCars = async () => {
+    const fetchEpic = async () => {
       try {
         let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
           headers: {
@@ -24,7 +24,7 @@ const HomePage = () => {
         console.log(error.response.data);
       }
     };
-    fetchCars();
+    fetchEpic();
   }, [token]);
   return (
     <div className="container">
