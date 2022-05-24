@@ -21,6 +21,7 @@ from epic import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.get_comments),
+    path('api/', views.get_membercenter),
     path('api/auth/', include('authentication.urls')),
     path('api/epic/', views.user_comments),
 ]
