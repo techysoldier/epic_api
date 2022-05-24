@@ -1,9 +1,8 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import useAuth from "../../hooks/useAuth";
-// import {KEY} from '../localKey';
-// // import axios from "axios";
-// import Maps from "../../components/Map/Map";
+
+import Maps from "../../components/Map/Map";
 
 
 const EpicHomePage = (props) => {
@@ -17,7 +16,7 @@ const EpicHomePage = (props) => {
         <div >
           
           <h1>Welcome to Epic Landing Page </h1>
-          {/* <Maps/> */}
+          <Maps/>
           
         </div>
       );
