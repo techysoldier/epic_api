@@ -40,6 +40,7 @@ const center = {
       type: ["places"]
     };
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     service = new GoogleMap.maps.places.PlacesService(mapRef.current);
     service.nearbySearch(request, callback);
     function callback(results, status) {
@@ -71,4 +72,3 @@ const center = {
 
 export default Maps;
 
-// LocalKey is not being read and google react npm is not installed or not readable
