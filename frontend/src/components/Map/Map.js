@@ -1,6 +1,6 @@
 import React from "react";
 import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-import {KEY} from "../localKey"
+import {KEY} from '../../localKey'
 
 
 const Maps = (props) => {
