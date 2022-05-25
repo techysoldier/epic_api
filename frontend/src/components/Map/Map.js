@@ -1,3 +1,6 @@
+//Billing error on rerfactored code + shows map 
+// gives this page cant load google maps correctly error
+
 import React from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import {KEY} from '../../localKey'
@@ -33,6 +36,10 @@ export default React.memo(MyComponent)
 
 
 
+
+
+//Original code set : Errors passing libraries and 
+//undeclared variables
 
 
 // import React from "react";
