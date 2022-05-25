@@ -12,7 +12,7 @@ const center = {
   lng: -38.523
 };
 
-function MyComponent() {
+function MyComponent(props) {
   return (
     <LoadScript
       googleMapsApiKey={KEY}
