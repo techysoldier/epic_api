@@ -1,5 +1,5 @@
 //Billing error on rerfactored code + shows map 
-// gives this page cant load google maps correctly error
+// also gives this page cant load google maps properly
 
 import React from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';

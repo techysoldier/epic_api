@@ -1,7 +1,7 @@
 import React from "react";
 import {useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import Maps from "../../components/Map/Map";
+import GoogleMap from "../../components/Map/Map";
 
 
 const EpicHomePage = (props) => {
@@ -15,7 +15,7 @@ const EpicHomePage = (props) => {
         <div >
           
           <h1>Welcome to Epic Landing Page </h1>
-          <Maps/>     
+          <GoogleMap/>     
         </div>
       );
     };
