@@ -6,6 +6,7 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import EpicHomePage from "./pages/EpicHomePage/EpicHomePage";
+
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
