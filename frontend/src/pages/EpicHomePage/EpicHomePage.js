@@ -2,7 +2,8 @@ import React from "react";
 import {useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import GoogleMap from "../../components/Map/Map";
-import CommentList from "../../components/CommentForm/CommentList copy"
+import AddPost from "../../components/CommentForm/CommentForm";
+import DisplayPost from "../../components/CommentForm/DisplayPost"
 
 
 const EpicHomePage = (props) => {
@@ -16,8 +17,10 @@ const EpicHomePage = (props) => {
         <div >
           
           <h1>Welcome to Epic Landing Page </h1>
-          <GoogleMap/>     
-          <CommentList/>
+          <GoogleMap/>  
+          <AddPost/>   \
+          <DisplayPost/>
+          
        
           
 

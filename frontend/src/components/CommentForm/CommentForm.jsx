@@ -1,23 +1,32 @@
+import React, { useState } from 'react';
+const AddPost = (props) => {
 
-const CommentForm = (props) => {
-    
+    const [name, setName]=useState('');
+    const [date, setDate] = useState('');
+    const [post, setPost] = useState('');
 
-    function handleSubmit(event) {
+    function handleSubmit(event){
         event.preventDefault();
-        props.newComment();
         
-        }
+        let newEntry = {
+           name : name,
+           post: post,
+           date: date 
+        };
+        console.log(newEntry);
+    }
+    return (  
+        <form onSubmit={handleSubmit}>
+            <label>Name</label>
+            <input type='name'value = {name} onChange={(event) => setName(event.target.value)} />
+            <label>Post</label>
+            <input type='post' value = {post} onChange={(event) => setPost(event.target.value) } />
+            <label> Date </label>
+            <input type ='date' value ={date} onChange={(event) => setDate(event.target.value)} />
+            <button type = 'submit'>Post</button>
 
-
-    return(
-    <form  onSubmit={handleSubmit}>
-        <div>
-        <label>Your comment</label>
-        <input type="text"  value={props.text} onChange={(event) => props.setText(event.target.value)}/>
-    </div>
-    <button  type='submit'>Add Comment</button>
-    </form>
-)
+        </form>
+    );
 }
 
-export default CommentForm;
+export default AddPost;
