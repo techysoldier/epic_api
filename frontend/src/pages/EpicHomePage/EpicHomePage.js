@@ -18,7 +18,7 @@ const EpicHomePage = (props) => {
           
           <h1>Welcome to Epic Landing Page </h1>
           <GoogleMap/>  
-          <AddPost/>   \
+          <AddPost/>   
           <DisplayPost/>
           
        

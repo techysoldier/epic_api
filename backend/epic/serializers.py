@@ -16,5 +16,5 @@ class MemberCenterSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['user', 'location_id', 'text']
+        fields = ['location_id', 'text']
         depth = 1

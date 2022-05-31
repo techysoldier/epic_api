@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
+
 const DisplayComment= (props) => {
    const [commentList, setCommentList]= useState([])
    const [user, token] = useAuth()
@@ -9,7 +10,7 @@ const DisplayComment= (props) => {
    useEffect(()=> {
     const DisplayCommentList = async () => {
         try {
-            let response = await axios.get(`http://127.0.0.1:8000/api/epic`, {
+            let response = await axios.get(`http://127.0.0.1:8000/api/epic/`, {
               headers: {
                 Authorization: "Bearer " + token,
               },
@@ -27,7 +28,8 @@ const DisplayComment= (props) => {
         <div>
             {commentList.map((comment) => {
             return(
-                <div>{commentList}</div>
+                <div>{comment.text}</div>
+                
             )
         })}
         </div>

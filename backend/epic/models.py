@@ -11,7 +11,7 @@ class MemberCenter(models.Model):
     email = models.CharField(max_length=255)
 
 
-class Comment(models.Model):
+class Comment (models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     location_id = models.CharField(max_length=255)
     text = models.CharField(max_length=255)
