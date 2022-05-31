@@ -9,6 +9,7 @@ class MemberCenter(models.Model):
     userid = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
+    
 
 
 class Comment (models.Model):
@@ -16,3 +17,7 @@ class Comment (models.Model):
     location_id = models.CharField(max_length=255)
     text = models.CharField(max_length=255)
 
+
+class Business (models.Model): 
+    name = models.CharField(max_length=255)
+    owner = models.CharField(max_length=255)
