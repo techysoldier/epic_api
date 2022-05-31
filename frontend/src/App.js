@@ -1,4 +1,5 @@
 // General Imports
+import React from 'react'
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
@@ -26,8 +27,7 @@ function App() {
             <PrivateRoute>
               <EpicHomePage />
             </PrivateRoute>
-          }
-        />
+          }/>
         <Route path="/epic" element={<EpicHomePage/>}/> 
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
