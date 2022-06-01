@@ -33,6 +33,7 @@ def get_comments(request):
         return Response(serializer.data)
 
 @api_view(['POST'])
+@permission_classes([AllowAny])
 def user_comments(request):
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)
@@ -43,9 +44,10 @@ def user_comments(request):
  
 @api_view(['GET'])
 def buisness_list(request):
-    Business = Business.objects.all()
-    serializer = BusinessSerializer(Business, many = True)
-    return Response(serializer.data)
+    if request.method == 'GET':
+        Business = Business.objects.all()
+        serializer = BusinessSerializer(Business, many = True)
+        return Response(serializer.data)
 
 @api_view(['POST'])
 def new_business(request):

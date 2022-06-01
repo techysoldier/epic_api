@@ -31,7 +31,7 @@ function App() {
           }/>
         <Route path="/epic" element={<EpicHomePage/>}/> 
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/registerbusiness" element={<RegisterBusiness />} />
+        <Route path="/newbusiness" element={<RegisterBusiness />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />

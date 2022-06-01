@@ -3,7 +3,7 @@ import {useState } from "react";
 import GoogleMap from "../../components/Map/Map";
 import AddPost from "../../components/CommentForm/CommentForm";
 import DisplayPost from "../../components/CommentForm/DisplayPost"
-
+import {Link} from "react-router-dom";
 
 const EpicHomePage = (props) => {
     const [entries, setEntries]= useState([{}])
@@ -22,7 +22,7 @@ const EpicHomePage = (props) => {
           <GoogleMap/>  
           <AddPost addNewEntryProperty={addNewEntry}/>   
           <DisplayPost parentEntries={entries}/>
-          
+          <Link to ="/newBusiness">Add Business</Link>
        
           
 

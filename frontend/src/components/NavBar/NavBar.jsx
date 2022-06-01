@@ -21,7 +21,7 @@ const Navbar = () => {
             <button onClick={logoutUser}>Logout</button>
           ) : (
             <><button onClick={() => navigate("/login")}>Login</button>
-            <button onClick={() => navigate("/registerbusiness/")}>Business</button></>
+            <button onClick={() => navigate("/newbusiness/")}>Business</button></>
           )}
         </li>
       </ul>
