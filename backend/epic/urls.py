@@ -24,4 +24,6 @@ urlpatterns = [
     path('api/', views.get_membercenter),
     path('api/auth/', include('authentication.urls')),
     path('api/epic/', views.get_comments),
+    path('api/epic/', views.buisness_list)
+    
 ]

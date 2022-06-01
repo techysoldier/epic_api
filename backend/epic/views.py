@@ -32,8 +32,6 @@ def get_comments(request):
         serializer = CommentSerializer(comment, many=True)
         return Response(serializer.data)
 
-@api_view(['POST'])
-@permission_classes([AllowAny])
 def user_comments(request):
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)

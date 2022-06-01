@@ -2,7 +2,7 @@
 // also gives this page cant load google maps properly
 
 import React from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import {KEY} from '../../localKey'
 
 const containerStyle = {
@@ -11,8 +11,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 27.94,
+  lng: -82.461
 };
 
 function MyComponent(props) {
@@ -26,6 +26,9 @@ function MyComponent(props) {
         zoom={10}
       >
         { /* Child components, such as markers, info windows, etc. */ }
+        <Marker
+      position={center}
+    />
         <></>
       </GoogleMap>
     </LoadScript>
