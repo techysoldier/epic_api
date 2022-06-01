@@ -29,6 +29,12 @@ function MyComponent(props) {
         <Marker
       position={center}
     />
+      <Marker
+      position={{ lat: 27.96, lng: -82.464 }}
+    />
+     <Marker
+      position={{ lat: 27.95, lng: -82.45}}
+    />
         <></>
       </GoogleMap>
     </LoadScript>
