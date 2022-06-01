@@ -32,6 +32,7 @@ def get_comments(request):
         serializer = CommentSerializer(comment, many=True)
         return Response(serializer.data)
 
+@api_view(['POST'])
 def user_comments(request):
     if request.method == 'POST':
         serializer = CommentSerializer(data=request.data)
@@ -42,6 +43,14 @@ def user_comments(request):
  
 @api_view(['GET'])
 def buisness_list(request):
- Business = Business.objects.all()
- serializer = BusinessSerializer(Business, many = True)
- return Response(serializer.data)
+    Business = Business.objects.all()
+    serializer = BusinessSerializer(Business, many = True)
+    return Response(serializer.data)
+
+@api_view(['POST'])
+def new_business(request):
+    if request.method == 'POST':
+        serializer = BusinessSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

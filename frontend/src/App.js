@@ -14,6 +14,7 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import RegisterBusiness from './pages/RegisterBusiness/RegisterBusiness';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           }/>
         <Route path="/epic" element={<EpicHomePage/>}/> 
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/registerbusiness" element={<RegisterBusiness />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
       <Footer />

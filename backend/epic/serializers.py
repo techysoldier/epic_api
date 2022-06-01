@@ -16,11 +16,11 @@ class MemberCenterSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = ['location_id', 'text']
+        fields = ['user','location_id', 'text']
         depth = 1
 
 
 class BusinessSerializer(serializers.ModelSerializer):
     class Meta: 
         name = Business
-        fields = ['name', 'owner']
+        fields = ['name', 'owner', 'address', 'latitude','longitude']

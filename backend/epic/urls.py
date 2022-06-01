@@ -18,12 +18,16 @@ from django.urls import path, include
 from epic import views
 
 
+#all paths are appended to localhost:3000/api/epic/
 urlpatterns = [
-    path('admin/', admin.site.urls),
+
     path('', views.get_comments),
     path('api/', views.get_membercenter),
-    path('api/auth/', include('authentication.urls')),
-    path('api/epic/', views.get_comments),
-    path('api/epic/', views.buisness_list)
+
+    # path('api/epic/', views.get_comments),
+    path('api/epic/', views.buisness_list),
+    # path('get_comments/', views.get_comments),
+    path('post_comment/', views.user_comments),
+    path('post_business/', views.new_business),
     
 ]

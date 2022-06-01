@@ -21,3 +21,6 @@ class Comment (models.Model):
 class Business (models.Model): 
     name = models.CharField(max_length=255)
     owner = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
