@@ -13,13 +13,15 @@ const Navbar = () => {
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
             <b>Epic</b>
+           
           </Link>
         </li>
         <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (
-            <button onClick={() => navigate("/login")}>Login</button>
+            <><button onClick={() => navigate("/login")}>Login</button>
+            <button onClick={() => navigate("/registerbusiness/")}>Business</button></>
           )}
         </li>
       </ul>

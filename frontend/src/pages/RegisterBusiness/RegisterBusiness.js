@@ -3,14 +3,14 @@ import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 
 const RegisterBusiness = () => {
-  const { RegisterBusiness } = useContext(AuthContext);
+  const { registerBusiness } = useContext(AuthContext);
   const defaultValues = {
     name: "",
     address: "",
   };
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     defaultValues,
-    RegisterBusiness
+    registerBusiness
   );
 
   return (
@@ -21,16 +21,16 @@ const RegisterBusiness = () => {
           <input
             type="text"
             name="Business Name"
-            value={formData.name}
+            value={formData.Name}
             onChange={handleInputChange}
           />
         </label>
         <label>
-         address:{" "}
+         Address:{" "}
           <input
             type="text"
-            name="Address"
-            value={formData.address}
+            address="Address"
+            value={formData.Address}
             onChange={handleInputChange}
           />
         </label>
