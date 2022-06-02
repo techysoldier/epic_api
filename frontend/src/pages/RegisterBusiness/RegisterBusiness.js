@@ -19,15 +19,11 @@ const RegisterBusiness = () => {
 async function postNewBusiness(){
 
   function getCoordinates(address){
-    fetch("https://maps.googleapis.com/maps/api/geocode/json?address="+address+'&key='+{KEY})
-      .then(response => response.json())
-      .then(data => {
-        const latitude = data.results.geometry.location.lat;
-        const longitude = data.results.geometry.location.lng;
-        console.log({latitude, longitude})
-      })
+    fetch("https://maps.googleapis.com/maps/api/geocode/json?address=(address)",'&key='+{KEY})
+    .then(response => console.log(response))
+   
   }
-  console.log (getCoordinates)
+  getCoordinates()
   
   //make axios call to geocoding API to get lat/lng based on address from form
   
