@@ -7,21 +7,31 @@ import axios from "axios";
 
 let initialValues = {
   name:"",
-  address: "",
+  address:"",
 };
 
 const RegisterBusiness = () => {
   const navigate = useNavigate()
-  const [formData, handleInputChange, handleSubmit] =useCustomForm(initialValues)
+  const [user, token] = useAuth();
+  const [formData, handleInputChange, handleSubmit] =useCustomForm(initialValues, postNewBusiness)
 
 async function postNewBusiness(){
+
+  //make axios call to geocoding API to get lat/lng based on address from form
+
+  //formData.latitude = value from geocoding
+  //.. long
+
   try{
     let response = await axios.post("http://127.0.0.1:8000/api/epic/post_business/", formData, {
-
+      headers: {
+        Authorization: "Bearer " + token,
+      }
     })
+    console.log(response)
     navigate("/")
   }catch(error){
-    console.log(error.message);
+    console.log(error.response.data);
 
   }
 }
@@ -31,20 +41,20 @@ return (
     <div className="container">
           <form className="form" onSubmit={handleSubmit}>
             <label>
-              Name:{" "}
+              name:{" "}
               <input
                 type="text"
-                name="Business Name"
-                value={formData.Name}
+                name="name"
+                value={formData.name}
                 onChange={handleInputChange}
               />
             </label>
             <label>
-             Address:{" "}
+            address:{" "}
               <input
                 type="text"
-                address="Address"
-                value={formData.Address}
+                name="address"
+                value={formData.address}
                 onChange={handleInputChange}
               />
             </label>

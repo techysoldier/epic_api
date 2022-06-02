@@ -22,5 +22,6 @@ class CommentSerializer(serializers.ModelSerializer):
 
 class BusinessSerializer(serializers.ModelSerializer):
     class Meta: 
-        name = Business
+        model = Business
         fields = ['name', 'owner', 'address', 'latitude','longitude']
+        depth = 1
