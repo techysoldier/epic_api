@@ -3,6 +3,7 @@ import {useNavigate} from "react-router-dom"
 import useCustomForm from "../../hooks/useCustomForm";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import {KEY} from '../../localKey'
 
 
 let initialValues = {
@@ -17,8 +18,19 @@ const RegisterBusiness = () => {
 
 async function postNewBusiness(){
 
+  function getCoordinates(address){
+    fetch("https://maps.googleapis.com/maps/api/geocode/json?address="+address+'&key='+{KEY})
+      .then(response => response.json())
+      .then(data => {
+        const latitude = data.results.geometry.location.lat;
+        const longitude = data.results.geometry.location.lng;
+        console.log({latitude, longitude})
+      })
+  }
+  console.log (getCoordinates)
+  
   //make axios call to geocoding API to get lat/lng based on address from form
-
+  
   //formData.latitude = value from geocoding
   //.. long
 
