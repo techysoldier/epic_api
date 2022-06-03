@@ -18,10 +18,10 @@ const RegisterBusiness = () => {
 
 async function postNewBusiness(){
 
-  function getCoordinates(address){
-    fetch("https://maps.googleapis.com/maps/api/geocode/json?address=(address)",'&key='+{KEY})
-    .then(response => console.log(response))
-   
+  
+async function getCoordinates(){
+    let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${formData.address}&key=${KEY}`)
+    console.log(response.data)
   }
   getCoordinates()
   
