@@ -27,6 +27,7 @@ let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/jso
     console.log(response.data)
     formData.latitude = response.data[0] ;
     formData.longitude =response.data[0] ;
+    return (response.data)
   }
  
   getCoordinates()
