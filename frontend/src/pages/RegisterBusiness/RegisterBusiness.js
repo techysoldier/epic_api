@@ -9,6 +9,7 @@ import {KEY} from '../../localKey'
 let initialValues = {
   name:"",
   address:"",
+
 };
 
 const RegisterBusiness = () => {
@@ -18,14 +19,15 @@ const RegisterBusiness = () => {
 
 async function postNewBusiness(){
 
+  //make axios call to geocoding API to get lat/lng based on address from form
   
 async function getCoordinates(){
     let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${formData.address}&key=${KEY}`)
     console.log(response.data)
   }
+ 
   getCoordinates()
   
-  //make axios call to geocoding API to get lat/lng based on address from form
   
   //formData.latitude = value from geocoding
   //.. long
@@ -43,6 +45,7 @@ async function getCoordinates(){
 
   }
 }
+
 
 
 return (

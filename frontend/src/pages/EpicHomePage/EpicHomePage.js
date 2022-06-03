@@ -21,7 +21,7 @@ const EpicHomePage = (props) => {
           <h1>Welcome to Epic Landing Page </h1>
           <GoogleMap/>  
           <AddPost addNewEntryProperty={addNewEntry}/>   
-          <DisplayPost parentEntries={entries}/>
+          {/* <DisplayPost parentEntries={entries}/> */}
           <Link to ="/newBusiness">Add Business</Link>
        
           
