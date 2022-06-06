@@ -22,19 +22,25 @@ async function postNewBusiness(){
   //make axios call to geocoding API to get lat/lng based on address from form
   
 async function getCoordinates(){
-  
-let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${formData.address}&key=${KEY}`)
-    console.log(response.data)
-    formData.latitude = response.data[0] ;
-    formData.longitude =response.data[0] ;
-    return (response.data[0])
-  }
+  let response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${formData.address}&key=${KEY}`) 
+  console.log (response.data)
+  let latLong = response.data.results[0].geometry.location 
  
-  getCoordinates()
-  
-  
+  return{latLong};
+ 
+
+
+}
+
+let latlng = getCoordinates()
+console.log(latlng)
+
+
   //formData.latitude = value from geocoding
   //.. long
+
+
+
 
   try{
     let response = await axios.post("http://127.0.0.1:8000/api/epic/post_business/", formData, {
