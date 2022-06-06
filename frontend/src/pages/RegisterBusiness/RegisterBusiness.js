@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {useNavigate} from "react-router-dom"
 import useCustomForm from "../../hooks/useCustomForm";
 import useAuth from "../../hooks/useAuth";
@@ -15,7 +15,7 @@ let initialValues = {
 const RegisterBusiness = () => {
   const navigate = useNavigate()
   const [user, token] = useAuth();
-  const [formData, handleInputChange, handleSubmit] =useCustomForm(initialValues, postNewBusiness)
+  const [formData, handleInputChange, handleSubmit] =useCustomForm(initialValues, postNewBusiness,)
 
 async function postNewBusiness(){
 
@@ -35,15 +35,8 @@ async function getCoordinates(){
 let latlng = getCoordinates()
 console.log(latlng)
 
-
-  //formData.latitude = value from geocoding
-  //.. long
-
-
-
-
-  try{
-    let response = await axios.post("http://127.0.0.1:8000/api/epic/post_business/", formData, {
+try{
+    let response = await axios.post("http://127.0.0.1:8000/api/epic/post_business/", formData, latlng, {
       headers: {
         Authorization: "Bearer " + token,
       }
@@ -59,6 +52,7 @@ console.log(latlng)
 
 
 return (
+
     <div className="container">
           <form className="form" onSubmit={handleSubmit}>
             <label>
@@ -85,49 +79,9 @@ return (
           </form>
         </div>
       );
+    
     };
 
 export default RegisterBusiness
 
 
-// const RegisterBusiness = () => {
-//   const { registerBusiness } = useContext(AuthContext);
-//   const defaultValues = {
-//     name: "",
-//     address: "",
-//   };
-//   const [formData, handleInputChange, handleSubmit] = useCustomForm(
-//     defaultValues,
-//     registerBusiness
-//   );
-
-//   return (
-//     <div className="container">
-//       <form className="form" onSubmit={handleSubmit}>
-//         <label>
-//           Name:{" "}
-//           <input
-//             type="text"
-//             name="Business Name"
-//             value={formData.Name}
-//             onChange={handleInputChange}
-//           />
-//         </label>
-//         <label>
-//          Address:{" "}
-//           <input
-//             type="text"
-//             address="Address"
-//             value={formData.Address}
-//             onChange={handleInputChange}
-//           />
-//         </label>
-//         <p style={{ fontSize: "12px" }}>
-//         </p>
-//         <button>Register Business!</button>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default RegisterBusiness;
