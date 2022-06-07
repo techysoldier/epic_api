@@ -4,6 +4,7 @@ import useCustomForm from "../../hooks/useCustomForm";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import {KEY} from '../../localKey'
+import { Marker} from '@react-google-maps/api';
 
 
 let initialValues = {
@@ -32,11 +33,26 @@ async function getCoordinates(){
 
 }
 
-let latlng = getCoordinates()
-console.log(latlng)
+let coordObject = await getCoordinates()
+console.log('coordObject', coordObject)
+
+
+//take lat/lng values off of coordObject, add each one to a property on formData
+
+formData.latitude = coordObject.latLong.lat
+formData.longitude = coordObject.latLong.lng
+console.log('formData', formData)
+
+//Goal for console log:
+// {
+//   'name': 'dfdsf',
+//   'address': "sdfdsf",
+//   'latitude': 23.44,
+//   'longitude': 45.77
+// }
 
 try{
-    let response = await axios.post("http://127.0.0.1:8000/api/epic/post_business/", formData, latlng, {
+    let response = await axios.post("http://127.0.0.1:8000/api/epic/post_business/", formData, {
       headers: {
         Authorization: "Bearer " + token,
       }
@@ -48,6 +64,21 @@ try{
 
   }
 }
+
+async function getmarker(){
+  let response = await axios.get("http://127.0.0.1:8000/api/epic/businesses/")
+  return(
+    <Marker
+      position={{lat: response.latitude , lng: response.longitude}}
+    /> 
+  )
+}
+
+getmarker()
+
+
+
+
 
 
 
@@ -78,8 +109,8 @@ return (
             <button>Register Business!</button>
           </form>
         </div>
+
       );
-    
     };
 
 export default RegisterBusiness

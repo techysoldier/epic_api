@@ -6,6 +6,7 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import {KEY} from '../../localKey'
 
 
+
 const containerStyle = {
   width: '400px',
   height: '400px'
@@ -15,7 +16,6 @@ const center = {
   lat: 27.94,
   lng: -82.461
 };
-
 
 
 function MyComponent(props) {
@@ -33,14 +33,8 @@ function MyComponent(props) {
       position={center}
     />
     <Marker 
-      position={{ lat: 27.96334771098521, lng: -82.46196901592512 }}
+     
       
-    />
-      <Marker
-      position={{ lat:27.94959632378652, lng: -82.46146334916934 }}
-    />
-     <Marker
-      position={{ lat: 27.94599805974414, lng: -82.44505115503641}} 
     />
         <></>
       </GoogleMap>
