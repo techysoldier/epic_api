@@ -1,10 +1,11 @@
-import React from "react";
-import {useNavigate} from "react-router-dom"
+import React, { useEffect, useState } from "react";
+import { useNavigate} from "react-router-dom"
 import useCustomForm from "../../hooks/useCustomForm";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import {KEY} from '../../localKey'
-import { Marker} from '@react-google-maps/api';
+import { Marker } from "@react-google-maps/api";
+
 
 
 let initialValues = {
@@ -65,19 +66,59 @@ try{
   }
 }
 
-async function getmarker(){
-  let response = await axios.get("http://127.0.0.1:8000/api/epic/businesses/")
-  return(
-    <Marker
-      position={{lat: response.latitude , lng: response.longitude}}
-    /> 
-  )
-}
+useEffect(() => {
+const getMarkerinfo = async () => {
+  try{
+    let response = await axios.get("http://127.0.0.1:8000/api/epic/businesses/", {
+      headers: {
+        Authorization: "Bearer" + token,
+      }
+    });
 
-getmarker()
+    console.log(response.data)
+    
+  } catch(error){
+    console.log(error.message)
+  }
+};
+getMarkerinfo();
+}, [token]);
 
 
 
+// const DisplayMarker = ({epic_business}) => {
+//   const [marker,setMarker] = useState("Marker")
+//   const displayMarker = [Marker]
+//   const HandleButtonClick = (event) => {
+//       event.preventDefault()
+//       setMarker(displayMarker)
+//       console.log(marker)
+//   }
+
+//   function generateMarker(){
+
+//     let filteredLocations = epic_business.filter(name => name.[0]longitude);
+//     filteredLocations = filteredLocations.sort((longitude) => {
+//         return longitude
+//     })
+//     //Returns array
+//     let allLocations = [...filteredLocations.map()]
+
+//     console.log(allLocations)
+ 
+//     let locationArrays = allLocations.map(LocationList =>{
+//      return [LocationList.longitude, "silver"]
+//     });
+
+//  const data = [
+//  ['Location', { role: "style" } ],
+//      ...locationArrays
+     
+// ]
+//  return data;
+// }
+
+// DisplayMarker()
 
 
 
@@ -106,13 +147,14 @@ return (
             </label>
             <p style={{ fontSize: "12px" }}>
             </p>
-            <button>Register Business!</button>
+            <button className="button">Register Business!</button>
           </form>
         </div>
 
       );
     };
 
-export default RegisterBusiness
+
+export default RegisterBusiness;
 
 
