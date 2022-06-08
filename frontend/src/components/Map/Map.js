@@ -40,6 +40,8 @@ const CreateMarker = () => {
   getMarkerinfo();
   }, [token]);
 
+
+
   return(
     <LoadScript
     googleMapsApiKey={KEY}
@@ -57,7 +59,7 @@ const CreateMarker = () => {
         </p>
       ))}
     
-      <></>
+      <></> 
     </GoogleMap>
   </LoadScript>
   )

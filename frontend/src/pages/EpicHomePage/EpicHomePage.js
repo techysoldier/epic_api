@@ -19,11 +19,11 @@ const EpicHomePage = (props) => {
       return (
         <div >
         
-          <h1>Welcome to Epic Landing Page </h1>
+          <h2>Welcome to Epic Landing Page </h2>
           <GoogleMap/>  
           <Link to ="/newBusiness">Add Business</Link>
           <div >
-          <h2> Comment Section</h2>
+          <h2 className="comment"> Comment Section</h2>
           <AddPost addNewEntryProperty={addNewEntry}/>  
           </div>
           <DisplayPost parentEntries={entries}/>
@@ -31,6 +31,7 @@ const EpicHomePage = (props) => {
        
         
       );
+      
     };
 
  

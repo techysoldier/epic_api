@@ -13,6 +13,7 @@ const Navbar = () => {
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "black" }}>
             <b>Epic</b>
+            <h1>The Key to Finding the Perfect Day Out</h1>
            
           </Link>
         </li>
