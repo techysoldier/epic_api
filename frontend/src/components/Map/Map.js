@@ -1,10 +1,12 @@
 //Billing error on rerfactored code + shows map 
 // also gives this page cant load google maps properly
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import {KEY} from '../../localKey'
-// import markerLife from '../../pages/RegisterBusiness/RegisterBusiness'
+import useAuth from "../../hooks/useAuth";
+import axios from 'axios';
+
 
 const containerStyle = {
   width: '400px',
@@ -17,33 +19,49 @@ const center = {
 };
 
 
-
-function MyComponent(props) {
-  return (
-    <LoadScript
-      googleMapsApiKey={KEY}
-    >
-      <GoogleMap
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={10}
-      >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <Marker
-      position={center}
-    />
-    <Marker 
-      // position={markerLife()}
+const CreateMarker = () => {
+  const [token] = useAuth();
+  const [ data, setData] = useState([]);
+  useEffect(() => {
+  const getMarkerinfo = async () => {
+    try{
+      let response = await axios.get("http://127.0.0.1:8000/api/epic/businesses/", {
+        headers: {
+          Authorization: "Bearer" + token,
+        }
+      });
+    let data = response.data 
+    setData(data);
       
-    />
-  
-        <></>
-      </GoogleMap>
-    </LoadScript>
+    } catch(error){
+      console.log(error.message)
+    }
+  };
+  getMarkerinfo();
+  }, [token]);
+
+  return(
+    <LoadScript
+    googleMapsApiKey={KEY}
+  >
+    <GoogleMap
+      mapContainerStyle={containerStyle}
+      center={center}
+      zoom={10}
+    >
+      {data &&
+      data.map((data) => (
+        <p key = {data.latlng}>
+        <Marker 
+        position={{lat: data.latitude , lng: data.longitude}} />
+        </p>
+      ))}
+    
+      <></>
+    </GoogleMap>
+  </LoadScript>
   )
-}
-
-export default React.memo(MyComponent)
-
-
-
+   
+      }
+    
+export default CreateMarker;
