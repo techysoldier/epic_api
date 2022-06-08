@@ -26,7 +26,6 @@ def get_membercenter(request):
 
 
 @api_view(['GET'])
-@permission_classes([AllowAny])
 def get_comments(request):
     if request.method == 'GET':
         comment = Comment.objects.all()

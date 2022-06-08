@@ -29,7 +29,7 @@ const DisplayComment= (props) => {
         <div>
             {commentList.map((comment) => {
             return(
-                <div>{comment.text}</div>
+                <div>{comment.location_id} {comment.text}</div>
                 
             )
         })}
