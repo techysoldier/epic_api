@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useNavigate} from "react-router-dom"
 import useCustomForm from "../../hooks/useCustomForm";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import {KEY} from '../../localKey'
-import { Marker } from "@react-google-maps/api";
+
 
 
 
@@ -16,7 +16,7 @@ let initialValues = {
 
 const RegisterBusiness = () => {
   const navigate = useNavigate()
-  const [user, token] = useAuth();
+  const [token] = useAuth();
   const [formData, handleInputChange, handleSubmit] =useCustomForm(initialValues, postNewBusiness,)
 
 async function postNewBusiness(){
@@ -65,7 +65,7 @@ try{
 
   }
 }
-
+const [ data, setData] = useState([]);
 useEffect(() => {
 const getMarkerinfo = async () => {
   try{
@@ -74,8 +74,8 @@ const getMarkerinfo = async () => {
         Authorization: "Bearer" + token,
       }
     });
-
-    console.log(response.data)
+  let epicdata = response.data 
+  setData(epicdata);
     
   } catch(error){
     console.log(error.message)
@@ -84,46 +84,8 @@ const getMarkerinfo = async () => {
 getMarkerinfo();
 }, [token]);
 
-
-
-// const DisplayMarker = ({epic_business}) => {
-//   const [marker,setMarker] = useState("Marker")
-//   const displayMarker = [Marker]
-//   const HandleButtonClick = (event) => {
-//       event.preventDefault()
-//       setMarker(displayMarker)
-//       console.log(marker)
-//   }
-
-//   function generateMarker(){
-
-//     let filteredLocations = epic_business.filter(name => name.[0]longitude);
-//     filteredLocations = filteredLocations.sort((longitude) => {
-//         return longitude
-//     })
-//     //Returns array
-//     let allLocations = [...filteredLocations.map()]
-
-//     console.log(allLocations)
- 
-//     let locationArrays = allLocations.map(LocationList =>{
-//      return [LocationList.longitude, "silver"]
-//     });
-
-//  const data = [
-//  ['Location', { role: "style" } ],
-//      ...locationArrays
-     
-// ]
-//  return data;
-// }
-
-// DisplayMarker()
-
-
-
-
-return (
+    
+  return(
 
     <div className="container">
           <form className="form" onSubmit={handleSubmit}>
@@ -149,12 +111,19 @@ return (
             </p>
             <button className="button">Register Business!</button>
           </form>
+        {data &&
+          data.map((epicdata) =>(
+            <p key = {epicdata}>
+             {epicdata.name} {epicdata.latitude} {epicdata.longitude} 
+            </p>
+          )
+          ) }
         </div>
 
       );
     };
-
-
+  
+  
 export default RegisterBusiness;
 
 

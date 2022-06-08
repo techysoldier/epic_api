@@ -4,7 +4,7 @@
 import React from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import {KEY} from '../../localKey'
-
+// import markerLife from '../../pages/RegisterBusiness/RegisterBusiness'
 
 const containerStyle = {
   width: '400px',
@@ -32,16 +32,11 @@ function MyComponent(props) {
         <Marker
       position={center}
     />
-    {/* <Marker 
-      position={{ lat: 27.96334771098521, lng: -82.46196901592512 }}
+    <Marker 
+      // position={markerLife()}
       
     />
-      <Marker
-      position={{ lat:27.94959632378652, lng: -82.46146334916934 }}
-    />
-     <Marker
-      position={{ lat: 27.94599805974414, lng: -82.44505115503641}} 
-    /> */}
+  
         <></>
       </GoogleMap>
     </LoadScript>
