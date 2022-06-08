@@ -9,8 +9,8 @@ import axios from 'axios';
 
 
 const containerStyle = {
-  width: '400px',
-  height: '400px'
+  width: '600px',
+  height: '300px'
 };
 
 const center = {

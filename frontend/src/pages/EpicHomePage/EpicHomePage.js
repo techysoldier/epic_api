@@ -4,6 +4,7 @@ import GoogleMap from "../../components/Map/Map";
 import AddPost from "../../components/CommentForm/CommentForm";
 import DisplayPost from "../../components/CommentForm/DisplayPost"
 import {Link} from "react-router-dom";
+import "./EpicHomePage.css";
 
 const EpicHomePage = (props) => {
     const [entries, setEntries]= useState([{}])
@@ -20,13 +21,14 @@ const EpicHomePage = (props) => {
         
           <h1>Welcome to Epic Landing Page </h1>
           <GoogleMap/>  
-          <AddPost addNewEntryProperty={addNewEntry}/>   
-          <DisplayPost parentEntries={entries}/>
           <Link to ="/newBusiness">Add Business</Link>
+          <div className="addEntry">
+          <AddPost addNewEntryProperty={addNewEntry}/>  
+          </div>
+          <DisplayPost parentEntries={entries}/>
+          </div>
        
-          
-
-        </div>
+        
       );
     };
 
