@@ -132,13 +132,16 @@ getMarkerinfo();
             </p>
             <button className="button">Register Business!</button>
           </form>
+          <div className="epicdata">
         {data &&
           data.map((epicdata) =>(
             <p key = {epicdata}>
              {epicdata.name} {epicdata.latitude} {epicdata.longitude} 
             </p>
+           
           )
           ) }
+           </div>
         </div>
 
       );

@@ -15,10 +15,7 @@ html {
   
 }
 
-p {
-  font-size: 20px;
 
-}
 
 button {
   background-color: transparent;
@@ -40,19 +37,20 @@ button:hover {
 }
 
 .container {
-  margin: 0 auto;
+  margin-top: 45rem;
   max-width: 600px;
   overflow: auto;
   text-align: center;
 }
 
-.form {
+form.form {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 0rem;
   margin-top: 1rem;
+ 
 }
 
 .form input {
@@ -86,3 +84,13 @@ label{
 }
 
 
+.epicdata{
+  border: 2px solid rgb(0, 0, 0);
+  font-size: 20px;
+  box-sizing: border-box;
+ 
+}
+
+.comment{ 
+  border: 1px solid rgb(6, 110, 229);
+}

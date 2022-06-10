@@ -4,7 +4,7 @@ import GoogleMap from "../../components/Map/Map";
 import AddPost from "../../components/CommentForm/CommentForm";
 import DisplayPost from "../../components/CommentForm/DisplayPost"
 import {Link} from "react-router-dom";
-import "./EpicHomePage.css";
+import './EpicHomePage.css'
 
 const EpicHomePage = (props) => {
     const [entries, setEntries]= useState([{}])

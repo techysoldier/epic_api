@@ -2,7 +2,7 @@
 // also gives this page cant load google maps properly
 
 import React, { useEffect, useState } from 'react'
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import {KEY} from '../../localKey'
 import useAuth from "../../hooks/useAuth";
 import axios from 'axios';
@@ -17,6 +17,8 @@ const center = {
   lat: 27.94,
   lng: -82.461
 };
+
+
 
 
 const CreateMarker = () => {
@@ -42,6 +44,33 @@ const CreateMarker = () => {
 
 
 
+  // const infoWindow = new GoogleMap.InfoWindow();
+
+  // Marker.addListener('click', () => {
+  //   InfoWindow.close();
+  //   InfoWindow.setContent ();
+  //   InfoWindow.open (Marker.getMap(), Marker)
+  // }
+  // )
+
+//   const infowindow = new google.maps.InfoWindow({
+//     content: contentString,
+//   });
+//   const marker = new google.maps.Marker({
+//     position: uluru,
+//     map,
+//     title: "Uluru (Ayers Rock)",
+//   });
+
+//   marker.addListener("click", () => {
+//     infowindow.open({
+//       anchor: marker,
+//       map,
+//       shouldFocus: false,
+//     });
+//   });
+// }
+
   return(
     <LoadScript
     googleMapsApiKey={KEY}
@@ -55,7 +84,8 @@ const CreateMarker = () => {
       data.map((data) => (
         <p key = {data.latlng}>
         <Marker 
-        position={{lat: data.latitude , lng: data.longitude}} />
+        position={{lat: data.latitude , lng: data.longitude}}
+       />
         </p>
       ))}
     
