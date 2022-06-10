@@ -2,7 +2,7 @@
 // also gives this page cant load google maps properly
 
 import React, { useEffect, useState } from 'react'
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import {KEY} from '../../localKey'
 import useAuth from "../../hooks/useAuth";
 import axios from 'axios';
@@ -18,6 +18,10 @@ const center = {
   lng: -82.461
 };
 
+// const options = { closeBoxURL: '', enableEventPropagation: true };
+// const onLoad = InfoBox => {
+//   console.log('infoBox: ', InfoBox)
+// };
 
 
 
@@ -45,26 +49,6 @@ const CreateMarker = () => {
 
 
 
-//   const infowindow = new google.maps.InfoWindow({
-//     content: contentString,
-//   });
-//   const marker = new google.maps.Marker({
-//     position: {{lat: data.latitude, lng: data.longitude}}
-//     map,
-//   });
-
-//   marker.addListener("click", () => {
-//     infowindow.open({
-//       anchor: marker,
-//       map,
-//       shouldFocus: false,
-//     });
-      // infoWindow.addListener('closeclick', ()=>{
-  // Handle focus manually.
-// });
-
-//   });
-// }
 
 
 
@@ -77,6 +61,18 @@ const CreateMarker = () => {
       center={center}
       zoom={10}
     >
+      {/* <InfoBox
+      onLoad={onLoad}
+      options={options}
+    
+    >
+      <div style={{ backgroundColor: 'yellow', opacity: 0.75, padding: 12 }}>
+        <div style={{ fontSize: 16, fontColor: `#08233B` }}>
+          Hello, World!
+        </div>
+      </div> */}
+   
+
       {data &&
       data.map((data) => (
         <p key = {data.latlng}>
@@ -87,6 +83,7 @@ const CreateMarker = () => {
       ))}
     
       <></> 
+      {/* </InfoBox> */}
     </GoogleMap>
   </LoadScript>
   )
