@@ -44,22 +44,13 @@ const CreateMarker = () => {
 
 
 
-  // const infoWindow = new GoogleMap.InfoWindow();
-
-  // Marker.addListener('click', () => {
-  //   InfoWindow.close();
-  //   InfoWindow.setContent ();
-  //   InfoWindow.open (Marker.getMap(), Marker)
-  // }
-  // )
 
 //   const infowindow = new google.maps.InfoWindow({
 //     content: contentString,
 //   });
 //   const marker = new google.maps.Marker({
-//     position: uluru,
+//     position: {{lat: data.latitude, lng: data.longitude}}
 //     map,
-//     title: "Uluru (Ayers Rock)",
 //   });
 
 //   marker.addListener("click", () => {
@@ -68,8 +59,14 @@ const CreateMarker = () => {
 //       map,
 //       shouldFocus: false,
 //     });
+      // infoWindow.addListener('closeclick', ()=>{
+  // Handle focus manually.
+// });
+
 //   });
 // }
+
+
 
   return(
     <LoadScript
