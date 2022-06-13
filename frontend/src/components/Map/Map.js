@@ -67,19 +67,23 @@ const CreateMarker = () => {
         <p key = {data.latlng}>
         <Marker 
         position={{lat: data.latitude , lng: data.longitude}}
+        label = {data.name}
        />
         </p>
       ))}
     <></> 
 
+
+        {/* goal is to get the facility info on register business to the frontend info boxes */}
     <InfoBox
       onLoad={onLoad}
       options={options}
       position={{lat: data.latitude , lng: data.longitude}}
+      anchor= {{Marker}}
     >
-      <div style={{ backgroundColor: 'yellow', opacity: 0.75, padding: 12 }}>
+      <div style={{ backgroundColor: 'white', opacity: 0.75, padding: 12, maxHeight: '169px' }}>
         <div style={{ fontSize: 10, fontColor: `#08233B` }}>
-          Get these on markers!
+          Input facility info
         </div>
       </div>
     </InfoBox>
@@ -91,3 +95,4 @@ const CreateMarker = () => {
       }
     
 export default CreateMarker;
+
