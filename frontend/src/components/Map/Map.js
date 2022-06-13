@@ -44,12 +44,11 @@ const CreateMarker = () => {
   }, [token]);
 
 
-
-
+  
   const options = { closeBoxURL: '/', enableEventPropagation: true };
   
-  const onClick = infoBox => {
-    
+  const onLoad = infoBox => {
+    console.log('infoBox: ', infoBox)
   };
 
 
@@ -74,7 +73,7 @@ const CreateMarker = () => {
     <></> 
 
     <InfoBox
-      onClick={onClick}
+      onLoad={onLoad}
       options={options}
       position={{lat: data.latitude , lng: data.longitude}}
     >
