@@ -1,8 +1,6 @@
-//Billing error on rerfactored code + shows map 
-// also gives this page cant load google maps properly
 
 import React, { useEffect, useState } from 'react'
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 import {KEY} from '../../localKey'
 import useAuth from "../../hooks/useAuth";
 import axios from 'axios';
@@ -18,11 +16,12 @@ const center = {
   lng: -82.461
 };
 
-// const options = { closeBoxURL: '', enableEventPropagation: true };
-// const onLoad = InfoBox => {
-//   console.log('infoBox: ', InfoBox)
-// };
-
+const marker = {
+  mapMarker: null,
+  activeMarker: {},
+  selectedPlace: {},
+  showingInfoWindow: false
+};
 
 
 const CreateMarker = () => {
@@ -38,6 +37,7 @@ const CreateMarker = () => {
       });
     let data = response.data 
     setData(data);
+  
       
     } catch(error){
       console.log(error.message)
@@ -47,10 +47,28 @@ const CreateMarker = () => {
   }, [token]);
 
 
+// const infoWindow = () => {
+//  let onMarkerClick = (props, marker) =>
+//   this.setState({
+//       activeMarker: marker,
+//       selectedPlace: props,
+//       showingInfoWindow: true
+//   });
 
+// let onInfoWindowClose = () =>
+//   this.setState({
+//       activeMarker: null,
+//       showingInfoWindow: false
+//   });
 
+//  let onLoad = Marker => {
+//   this.setState({
+//     Marker
+//   });
+// };
+// return infoWindow();
 
-
+// }
 
   return(
     <LoadScript
@@ -61,29 +79,32 @@ const CreateMarker = () => {
       center={center}
       zoom={10}
     >
-      {/* <InfoBox
-      onLoad={onLoad}
-      options={options}
-    
-    >
-      <div style={{ backgroundColor: 'yellow', opacity: 0.75, padding: 12 }}>
-        <div style={{ fontSize: 16, fontColor: `#08233B` }}>
-          Hello, World!
-        </div>
-      </div> */}
-   
-
       {data &&
       data.map((data) => (
         <p key = {data.latlng}>
         <Marker 
         position={{lat: data.latitude , lng: data.longitude}}
+        label = {data.name}
        />
         </p>
       ))}
-    
+    {/* {Marker && (
+        <infoWindow
+            anchor={Marker}
+            position={{
+              lat: data.latitude,
+              lng: data.longitude
+            }}  
+            marker={this.state.activeMarker}
+            onClose={this.onInfoWindowClose}
+            visible={this.state.showingInfoWindow}
+          >
+            <div style={{ background: "white" }}>
+              {"custom Infobox: " + data.id}
+            </div> */}
       <></> 
-      {/* </InfoBox> */}
+      {/* </infoWindow> */}
+    {/* )} */}
     </GoogleMap>
   </LoadScript>
   )

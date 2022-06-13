@@ -4,13 +4,14 @@ import useCustomForm from "../../hooks/useCustomForm";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import {KEY} from '../../localKey'
-import { Marker } from "@react-google-maps/api";
+
 
 
 
 let initialValues = {
   name:"",
   address:"",
+  facilities: "",
 
 };
 
@@ -128,6 +129,15 @@ getMarkerinfo();
                 onChange={handleInputChange}
               />
             </label>
+            <label>
+            facilities:{" "}
+              <input
+                type="text"
+                name="facilities"
+                value={formData.facilities}
+                onChange={handleInputChange}
+              />
+            </label>
             <p style={{ fontSize: "12px" }}>
             </p>
             <button className="button">Register Business!</button>
@@ -136,7 +146,7 @@ getMarkerinfo();
         {data &&
           data.map((epicdata) =>(
             <p key = {epicdata}>
-             {epicdata.name} {epicdata.latitude} {epicdata.longitude} 
+             {epicdata.name} {epicdata.latitude} {epicdata.longitude}
             </p>
            
           )
