@@ -78,8 +78,7 @@ const CreateMarker = () => {
     <InfoBox
       onLoad={onLoad}
       options={options}
-      position={{lat: data.latitude , lng: data.longitude}}
-      anchor= {{Marker}}
+      position={{Marker}}
     >
       <div style={{ backgroundColor: 'white', opacity: 0.75, padding: 12, maxHeight: '169px' }}>
         <div style={{ fontSize: 10, fontColor: `#08233B` }}>
