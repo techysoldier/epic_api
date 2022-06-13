@@ -1,6 +1,8 @@
+//Billing error on rerfactored code + shows map 
+// also gives this page cant load google maps properly
 
 import React, { useEffect, useState } from 'react'
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker, InfoBox} from '@react-google-maps/api';
 import {KEY} from '../../localKey'
 import useAuth from "../../hooks/useAuth";
 import axios from 'axios';
@@ -16,12 +18,8 @@ const center = {
   lng: -82.461
 };
 
-const marker = {
-  mapMarker: null,
-  activeMarker: {},
-  selectedPlace: {},
-  showingInfoWindow: false
-};
+
+
 
 
 const CreateMarker = () => {
@@ -37,7 +35,6 @@ const CreateMarker = () => {
       });
     let data = response.data 
     setData(data);
-  
       
     } catch(error){
       console.log(error.message)
@@ -47,28 +44,15 @@ const CreateMarker = () => {
   }, [token]);
 
 
-// const infoWindow = () => {
-//  let onMarkerClick = (props, marker) =>
-//   this.setState({
-//       activeMarker: marker,
-//       selectedPlace: props,
-//       showingInfoWindow: true
-//   });
 
-// let onInfoWindowClose = () =>
-//   this.setState({
-//       activeMarker: null,
-//       showingInfoWindow: false
-//   });
 
-//  let onLoad = Marker => {
-//   this.setState({
-//     Marker
-//   });
-// };
-// return infoWindow();
+  const options = { closeBoxURL: '/', enableEventPropagation: true };
+  
+  const onClick = infoBox => {
+    
+  };
 
-// }
+
 
   return(
     <LoadScript
@@ -84,27 +68,23 @@ const CreateMarker = () => {
         <p key = {data.latlng}>
         <Marker 
         position={{lat: data.latitude , lng: data.longitude}}
-        label = {data.name}
        />
         </p>
       ))}
-    {/* {Marker && (
-        <infoWindow
-            anchor={Marker}
-            position={{
-              lat: data.latitude,
-              lng: data.longitude
-            }}  
-            marker={this.state.activeMarker}
-            onClose={this.onInfoWindowClose}
-            visible={this.state.showingInfoWindow}
-          >
-            <div style={{ background: "white" }}>
-              {"custom Infobox: " + data.id}
-            </div> */}
-      <></> 
-      {/* </infoWindow> */}
-    {/* )} */}
+    <></> 
+
+    <InfoBox
+      onClick={onClick}
+      options={options}
+      position={{lat: data.latitude , lng: data.longitude}}
+    >
+      <div style={{ backgroundColor: 'yellow', opacity: 0.75, padding: 12 }}>
+        <div style={{ fontSize: 10, fontColor: `#08233B` }}>
+          Get these on markers!
+        </div>
+      </div>
+    </InfoBox>
+     
     </GoogleMap>
   </LoadScript>
   )
