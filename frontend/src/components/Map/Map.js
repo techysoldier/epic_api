@@ -52,7 +52,7 @@ const CreateMarker = () => {
   };
 
 
-
+  
   return(
     <LoadScript
     googleMapsApiKey={KEY}
@@ -86,12 +86,11 @@ const CreateMarker = () => {
         </div>
       </div>
     </InfoBox>
-     
+     <div id = 'ledgend'><h3>Legend</h3></div>
     </GoogleMap>
   </LoadScript>
   )
    
-      }
-    
+      }    
 export default CreateMarker;
 
