@@ -16,7 +16,7 @@ const AddPost = (props) => {
            date: date 
         };
         console.log(newEntry);
-        props.addNewEntryproperty()
+        props.addNewEntryProperty(newEntry)
     }
     return (  
         <form onSubmit={handleSubmit}>
@@ -27,8 +27,8 @@ const AddPost = (props) => {
             <label> Date </label>
             <input type ='date' value ={date} onChange={(event) => setDate(event.target.value)} />
             <button type = 'submit'>Post</button>
+
         </form>
-        
     );
 }
 

@@ -10,8 +10,8 @@ const EpicHomePage = (props) => {
     const [entries, setEntries]= useState([{}])
   
   function addNewEntry(entry){
-    let tempEntries = [entry, ...entries]
-    setEntries(tempEntries)
+    let tempEntries = [entry, ...entries];
+    setEntries(tempEntries);
   }
    
     
