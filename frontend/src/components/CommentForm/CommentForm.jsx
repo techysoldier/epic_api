@@ -15,8 +15,9 @@ const AddPost = (props) => {
            post: post,
            date: date 
         };
-        console.log(newEntry);
+         console.log(newEntry)
         props.addNewEntryProperty(newEntry)
+       
     }
     return (  
         <form onSubmit={handleSubmit}>

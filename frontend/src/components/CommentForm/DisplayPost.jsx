@@ -22,7 +22,6 @@ const DisplayComment= (props) => {
             console.log(error.message);
           }
         };
-        console.log(commentList)
         DisplayCommentList(commentList);
   
 }, [token]);
